@@ -30,8 +30,8 @@ set(CONFIG_ADD_OPTIONS "")
 			OUTPUT ${TOOL_TARGET_BUILD_OUTPUT}
 			COMMAND test -e ${CMAKE_CURRENT_SOURCE_DIR}/${TOOL_TARGET_SOURCE} || wget http://downloads.sourceforge.net/project/libexif/libexif/0.6.21/${TOOL_TARGET_SOURCE} -O ${CMAKE_CURRENT_SOURCE_DIR}/${TOOL_TARGET_SOURCE}
 			COMMAND tar -xjvf ${CMAKE_CURRENT_SOURCE_DIR}/${TOOL_TARGET_SOURCE}
-			COMMAND cd ${CMAKE_BINARY_DIR}/${TOOL_TARGET_DIR} && ${target_platform_preconfigure_options} ./configure --host="${target_platform}" --prefix=${CMAKE_BINARY_DIR} LDFLAGS="${SELF_LDFLAGS}" CPPFLAGS="${SELF_CPPFLAGS}" ${CONFIG_ADD_OPTIONS}
-			COMMAND cd ${CMAKE_BINARY_DIR}/${TOOL_TARGET_DIR} && make -j2 && make install
+			COMMAND cd ${TOOL_TARGET_DIR} && ${target_platform_preconfigure_options} ./configure --host="${target_platform}" --prefix=${CMAKE_BINARY_DIR} LDFLAGS="${SELF_LDFLAGS}" CPPFLAGS="${SELF_CPPFLAGS}" ${CONFIG_ADD_OPTIONS}
+			COMMAND cd ${TOOL_TARGET_DIR} && make -j2 && make install
 			WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
 			COMMENT ${TOOL_TARGET_COMMENT}
 		)
@@ -40,8 +40,8 @@ set(CONFIG_ADD_OPTIONS "")
 			OUTPUT ${TOOL_TARGET_BUILD_OUTPUT}
 			COMMAND test -e ${CMAKE_CURRENT_SOURCE_DIR}/${TOOL_TARGET_SOURCE} || wget http://downloads.sourceforge.net/project/libexif/libexif/0.6.21/${TOOL_TARGET_SOURCE} -O ${CMAKE_CURRENT_SOURCE_DIR}/${TOOL_TARGET_SOURCE}
 			COMMAND tar -xjvf ${CMAKE_CURRENT_SOURCE_DIR}/${TOOL_TARGET_SOURCE}
-			COMMAND cd ${CMAKE_BINARY_DIR}/${TOOL_TARGET_DIR} && ${target_platform_preconfigure_options} ./configure --prefix=${CMAKE_BINARY_DIR} LDFLAGS="${SELF_LDFLAGS}" CPPFLAGS="${SELF_CPPFLAGS}" ${CONFIG_ADD_OPTIONS}
-			COMMAND cd ${CMAKE_BINARY_DIR}/${TOOL_TARGET_DIR} && make -j2 && make install
+			COMMAND cd ${TOOL_TARGET_DIR} && ${target_platform_preconfigure_options} ./configure --prefix=${CMAKE_BINARY_DIR} LDFLAGS="${SELF_LDFLAGS}" CPPFLAGS="${SELF_CPPFLAGS}" ${CONFIG_ADD_OPTIONS}
+			COMMAND cd ${TOOL_TARGET_DIR} && make -j2 && make install
 			WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
 			COMMENT ${TOOL_TARGET_COMMENT}
 		)
